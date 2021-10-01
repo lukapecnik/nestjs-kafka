@@ -68,7 +68,7 @@ export class KafkaAvroRequestSerializer
       const valueSuffix = schema.valueSuffix ?? 'value';
 
       try {
-        const keyId = await this.registry.getLatestSchemaId(`${schema.topic}-${keySuffix}`) || null;
+        const keyId = await this.registry.getLatestSchemaId(`${schema.topic}${keySuffix}`) || null;
         const valueId = await this.registry.getLatestSchemaId(`${schema.topic}-${valueSuffix}`)
 
         this.schemas.set(schema.topic, {
